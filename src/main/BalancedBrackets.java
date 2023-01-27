@@ -1,6 +1,8 @@
 package main;
 
 
+import java.util.Objects;
+
 public class BalancedBrackets {
     /**
      * The function BalancedBrackets should return true if and only if
@@ -23,7 +25,12 @@ public class BalancedBrackets {
      */
     public static boolean hasBalancedBrackets(String str) {
         int brackets = 0;
+
+        if(Objects.equals(str, "") || Objects.equals(str, " ")){return false;}
+
         for (char ch : str.toCharArray()) {
+            if(brackets<0){return false;}
+
             if (ch == '[') {
                 brackets++;
             } else if (ch == ']') {
